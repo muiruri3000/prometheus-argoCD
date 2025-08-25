@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: movies-deployment
+  labels:
+    app: movies-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: movies-deployment
+  template:
+    metadata:
+      labels:
+        app: movies-deployment
+    spec:
+      containers:
+      - name: movies-container
+        image: muiruri1/parcel-moviez:1fb82e156f8191386f8a588d7e04180074711e37
+        ports:
+        - containerPort: 80

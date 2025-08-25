@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1
+kind: Probe
+metadata:
+  name: movies-probe
+  namespace: monitoring
+  labels:
+    release: kube-prometheus-stack
+spec:
+  jobName: movies-net
+  prober:
+    url: blackbox-exporter-prometheus-blackbox-exporter.monitoring.svc.cluster.local
+    scheme: http
+    path: /probe
+  module: http_2xx
+  targets:
+    staticConfig:
+      static:
+        - http://192.168.49.2:32277
