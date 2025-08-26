@@ -15,4 +15,4 @@ spec:
   targets:
     staticConfig:
       static:
-        - http://192.168.49.2:32277
+        - http://movies-service.default.svc.cluster.local:80
